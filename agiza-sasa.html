@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="sw">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agiza Nasi | Davisa Truck</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        :root { --red: #b3211e; --black: #1a1a1a; --white: #ffffff; }
+        body { font-family: 'Open Sans', sans-serif; background: #f4f7f6; margin: 0; transition: 0.3s; }
+        
+        /* Header & Navigation */
+        .nav-header { background: white; padding: 15px 8%; box-shadow: 0 2px 5px rgba(0,0,0,0.1); display: flex; justify-content: space-between; align-items: center; }
+        .back-btn { text-decoration: none; color: var(--red); font-weight: bold; font-size: 0.9rem; }
+        
+        /* Form Box */
+        .form-box { max-width: 600px; margin: 50px auto; background: white; padding: 40px 30px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); position: relative; }
+        
+        /* Logo ya Mduara (Circle Logo) */
+        .logo-wrap { 
+            width: 120px; height: 120px; background: white; 
+            border-radius: 50%; border: 4px solid var(--red); 
+            margin: -100px auto 20px; display: flex; 
+            justify-content: center; align-items: center; 
+            overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        .logo-wrap img { width: 90%; height: 90%; object-fit: contain; border-radius: 50%; }
+
+        h1 { font-family: 'Montserrat'; color: var(--black); text-align: center; margin-bottom: 30px; font-size: 1.5rem; text-transform: uppercase; letter-spacing: 1px; }
+        h1::after { content: ''; display: block; width: 60px; height: 3px; background: var(--red); margin: 10px auto; }
+
+        .field { margin-bottom: 20px; }
+        label { display: block; margin-bottom: 8px; font-weight: 600; color: #444; font-size: 0.85rem; }
+        input, select, textarea { width: 100%; padding: 12px; border: 1px solid #e1e1e1; border-radius: 8px; font-family: inherit; font-size: 0.95rem; background: #fafafa; }
+        input:focus, select:focus { border-color: var(--red); outline: none; background: #fff; }
+        
+        .location-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; }
+        
+        .budget-container { display: flex; align-items: center; border: 1px solid #e1e1e1; border-radius: 8px; overflow: hidden; }
+        .budget-container select { width: 90px; border: none; background: #eee; border-right: 1px solid #e1e1e1; border-radius: 0; font-weight: bold; }
+        .budget-container input { border: none; flex: 1; background: #fff; }
+        
+        /* WhatsApp Button */
+        .submit-wa { background: #25D366; color: white; border: none; width: 100%; padding: 16px; font-size: 1rem; font-weight: 800; cursor: pointer; border-radius: 8px; margin-top: 15px; transition: 0.3s; box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3); }
+        .submit-wa:hover { background: #1eb954; transform: translateY(-2px); }
+        
+        .lang-btn { background: var(--black); color: white; border: none; padding: 8px 16px; border-radius: 6px; cursor: pointer; font-weight: bold; font-size: 0.8rem; }
+        
+        @media (max-width: 600px) { .location-grid { grid-template-columns: 1fr; } .form-box { margin: 80px 15px; } }
+    </style>
+</head>
+<body>
+
+<div class="nav-header">
+    <a href="index.html" class="back-btn" id="goBack">← RUDI NYUMBANI</a>
+    <button class="lang-btn" onclick="toggleLang()" id="lBtn">English</button>
+</div>
+
+<div class="form-box">
+    <div class="logo-wrap">
+        <img src="logo.png" alt="Davisa Logo">
+    </div>
+
+    <h1 id="fTitle">AGIZA NASI DAVISA TRUCK</h1>
+    
+    <form id="truckForm">
+        <div class="field">
+            <label id="lName">Jina Lako Kamili</label>
+            <input type="text" id="name" placeholder="Andika jina lako..." required>
+        </div>
+
+        <div class="field">
+            <label id="lLoc">Mahali Unapopatikana</label>
+            <div class="location-grid">
+                <select id="country" onchange="handleCountryChange()">
+                    <option value="" id="optCountry">Chagua Nchi</option>
+                    <option value="Tanzania">Tanzania</option>
+                    <option value="Kenya">Kenya</option>
+                    <option value="Uganda">Uganda</option>
+                    <option value="Other" id="optOther">Nchi Nyingine...</option>
+                </select>
+                <div id="regionWrapper">
+                    <select id="region" onchange="updateDistricts()" disabled><option value="" id="optReg">Mkoa</option></select>
+                </div>
+                <div id="districtWrapper">
+                    <select id="district" disabled><option value="" id="optDist">Wilaya</option></select>
+                </div>
+            </div>
+        </div>
+
+        <div class="field">
+            <label id="lTruck">Aina ya Gari (Brand)</label>
+            <select id="truck">
+                <option value="SCANIA">SCANIA</option>
+                <option value="FAW">FAW</option>
+                <option value="HOWO">HOWO</option>
+                <option value="SHACMAN">SHACMAN</option>
+                <option value="TRAILER">TRAILER</option>
+            </select>
+        </div>
+
+        <div class="field">
+            <label id="lCond">Hali ya Gari</label>
+            <select id="condition">
+                <option value="Mpya (China)" id="optNew">Mpya (China)</option>
+                <option value="Used (UK)" id="optUsed">Iliyotumika (UK)</option>
+            </select>
+        </div>
+
+        <div class="field">
+            <label id="lBudget">Bajeti Yako</label>
+            <div class="budget-container">
+                <select id="currency">
+                    <option value="Tsh">Tsh</option>
+                    <option value="USD">USD ($)</option>
+                    <option value="KES">KES</option>
+                </select>
+                <input type="text" id="budget" placeholder="Mfano: 150,000,000" oninput="formatMoney(this)" required>
+            </div>
+        </div>
+
+        <div class="field">
+            <label id="lMsg">Maelezo ya Ziada (Mwaka wa Gari nk.)</label>
+            <textarea id="message" rows="3" placeholder="Elezea unachohitaji zaidi..."></textarea>
+        </div>
+
+        <button type="button" class="submit-wa" onclick="sendToWA()" id="fBtn">TUMA KWA WHATSAPP</button>
+    </form>
+</div>
+
+<script>
+    let currentLang = 'sw';
+    const data = {
+        "Tanzania": {
+            "Dar es Salaam": ["Ilala", "Kinondoni", "Temeke", "Ubungo", "Kigamboni"],
+            "Arusha": ["Arusha Mjini", "Arumeru", "Monduli", "Karatu"],
+            "Mwanza": ["Nyamagana", "Ilemela", "Sengerema"],
+            "Dodoma": ["Dodoma Mjini", "Bahi", "Kondoa"],
+            "Mbeya": ["Mbeya Mjini", "Kyela", "Rungwe"],
+            "Pwani": ["Kibaha", "Bagamoyo", "Chalinze"],
+            "Tanga": ["Tanga Mjini", "Korogwe", "Lushoto"],
+            "Kilimanjaro": ["Moshi", "Hai", "Same"],
+            "Morogoro": ["Morogoro Mjini", "Kilosa", "Ifakara"]
+            // ... (Unaweza kuongeza mikoa mingine hapa kama ilivyokuwa mwanzo)
+        },
+        "Kenya": { "Nairobi": ["Central", "Westlands"], "Mombasa": ["Nyali", "Mvita"] },
+        "Uganda": { "Kampala": ["Central Division"], "Entebbe": ["Division A"] }
+    };
+
+    const dictionary = {
+        en: {
+            goBack: "← BACK HOME", fTitle: "ORDER WITH DAVISA TRUCK", lName: "Full Name",
+            pName: "Enter your name...", lLoc: "Your Location", optCountry: "Select Country",
+            optOther: "Other Country...", optReg: "Region", optDist: "District",
+            lTruck: "Truck Brand", lCond: "Truck Condition", optNew: "Brand New (China)",
+            optUsed: "Used (UK Import)", lBudget: "Your Budget", lMsg: "Extra Details",
+            pMsg: "Describe (Year, Model etc)...", fBtn: "SEND TO WHATSAPP",
+            lBtn: "Swahili", alert: "Please fill all fields!"
+        },
+        sw: {
+            goBack: "← RUDI NYUMBANI", fTitle: "AGIZA NASI DAVISA TRUCK", lName: "Jina Lako Kamili",
+            pName: "Andika jina lako...", lLoc: "Mahali Unapopatikana", optCountry: "Chagua Nchi",
+            optOther: "Nchi Nyingine...", optReg: "Mkoa", optDist: "Wilaya",
+            lTruck: "Aina ya Gari (Brand)", lCond: "Hali ya Gari", optNew: "Mpya (China)",
+            optUsed: "Iliyotumika (UK)", lBudget: "Bajeti Yako", lMsg: "Maelezo ya Ziada",
+            pMsg: "Elezea unachohitaji zaidi...", fBtn: "TUMA KWA WHATSAPP",
+            lBtn: "English", alert: "Tafadhali jaza taarifa zote!"
+        }
+    };
+
+    function toggleLang() {
+        currentLang = currentLang === 'sw' ? 'en' : 'sw';
+        const t = dictionary[currentLang];
+        document.getElementById('lBtn').innerText = t.lBtn;
+        document.getElementById('goBack').innerText = t.goBack;
+        document.getElementById('fTitle').innerText = t.fTitle;
+        document.getElementById('lName').innerText = t.lName;
+        document.getElementById('name').placeholder = t.pName;
+        document.getElementById('lLoc').innerText = t.lLoc;
+        document.getElementById('optCountry').innerText = t.optCountry;
+        document.getElementById('optOther').innerText = t.optOther;
+        document.getElementById('lTruck').innerText = t.lTruck;
+        document.getElementById('lCond').innerText = t.lCond;
+        document.getElementById('optNew').innerText = t.optNew;
+        document.getElementById('optUsed').innerText = t.optUsed;
+        document.getElementById('lBudget').innerText = t.lBudget;
+        document.getElementById('lMsg').innerText = t.lMsg;
+        document.getElementById('message').placeholder = t.pMsg;
+        document.getElementById('fBtn').innerText = t.fBtn;
+    }
+
+    function formatMoney(input) {
+        let value = input.value.replace(/,/g, '');
+        if (value === "") return;
+        if (isNaN(value)) { input.value = ""; return; }
+        input.value = Number(value).toLocaleString('en-US');
+    }
+
+    function handleCountryChange() {
+        const country = document.getElementById("country").value;
+        const regionWrap = document.getElementById("regionWrapper");
+        const districtWrap = document.getElementById("districtWrapper");
+        const t = dictionary[currentLang];
+
+        if (country === "Other") {
+            regionWrap.innerHTML = `<input type="text" id="region" placeholder="Region/State">`;
+            districtWrap.innerHTML = `<input type="text" id="district" placeholder="City/Town">`;
+        } else {
+            regionWrap.innerHTML = `<select id="region" onchange="updateDistricts()" disabled><option value="" id="optReg">${t.optReg}</option></select>`;
+            districtWrap.innerHTML = `<select id="district" disabled><option value="" id="optDist">${t.optDist}</option></select>`;
+            updateRegions();
+        }
+    }
+
+    function updateRegions() {
+        const country = document.getElementById("country").value;
+        const regionDropdown = document.getElementById("region");
+        if (!regionDropdown || regionDropdown.tagName === "INPUT") return;
+        regionDropdown.innerHTML = `<option value="">${dictionary[currentLang].optReg}</option>`;
+        if (country && data[country]) {
+            regionDropdown.disabled = false;
+            Object.keys(data[country]).sort().forEach(region => {
+                let opt = document.createElement("option");
+                opt.value = region; opt.innerText = region;
+                regionDropdown.appendChild(opt);
+            });
+        }
+    }
+
+    function updateDistricts() {
+        const country = document.getElementById("country").value;
+        const region = document.getElementById("region").value;
+        const districtDropdown = document.getElementById("district");
+        if (!districtDropdown || districtDropdown.tagName === "INPUT") return;
+        districtDropdown.innerHTML = `<option value="">${dictionary[currentLang].optDist}</option>`;
+        if (region && data[country][region]) {
+            districtDropdown.disabled = false;
+            data[country][region].sort().forEach(dist => {
+                let opt = document.createElement("option");
+                opt.value = dist; opt.innerText = dist;
+                districtDropdown.appendChild(opt);
+            });
+        }
+    }
+
+    function sendToWA() {
+        const name = document.getElementById('name').value;
+        const country = document.getElementById('country').value;
+        const region = document.getElementById('region').value;
+        const district = document.getElementById('district').value;
+        const truck = document.getElementById('truck').value;
+        const cond = document.getElementById('condition').value;
+        const curr = document.getElementById('currency').value;
+        const budget = document.getElementById('budget').value;
+        const msg = document.getElementById('message').value;
+
+        if(!name || !budget || !region) {
+            alert(dictionary[currentLang].alert);
+            return;
+        }
+
+        const loc = (country === "Other") ? `${region}, ${district}` : `${district}, ${region}, ${country}`;
+        const text = `HABARI DAVISA TRUCK!\n\n👤 JINA: ${name}\n📍 ENEO: ${loc}\n🚚 GARI: ${truck}\n🛠️ HALI: ${cond}\n💰 BAJETI: ${curr} ${budget}\n📝 MAELEZO: ${msg}`;
+        window.open(`https://wa.me/255759670723?text=${encodeURIComponent(text)}`, '_blank');
+    }
+</script>
+</body>
+</html>
