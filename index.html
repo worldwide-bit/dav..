@@ -1,1 +1,224 @@
+<!DOCTYPE html>
+<html lang="sw">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Davisa Worldwide | Heavy Vehicles Importers Tanzania</title>
+    
+    <meta name="description" content="Agiza malori bora ya Scania, HOWO, FAW na SHACMAN kutoka China na UK kupitia Davisa Worldwide.">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <style>
+        :root { --red: #b3211e; --black: #000000; --white: #ffffff; --gray: #f4f4f4; --whatsapp: #25D366; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Open Sans', sans-serif; line-height: 1.6; color: #333; scroll-behavior: smooth; overflow-x: hidden; }
 
+        /* Preloader */
+        #preloader { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: white; display: flex; justify-content: center; align-items: center; z-index: 9999; }
+        .loader { width: 50px; height: 50px; border: 5px solid #f3f3f3; border-top: 5px solid var(--red); border-radius: 50%; animation: spin 1s linear infinite; }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+
+        header { 
+            background: var(--white); padding: 10px 8%; display: flex; 
+            justify-content: space-between; align-items: center; 
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1000;
+        }
+        
+        .logo-box { display: flex; align-items: center; gap: 12px; text-decoration: none; color: inherit; }
+        .logo-box img { height: 65px; width: 65px; border-radius: 50%; object-fit: cover; border: 2px solid var(--red); }
+        .logo-text { font-family: 'Montserrat'; font-weight: 800; font-size: 1.2rem; line-height: 1; }
+        .logo-text span { color: var(--red); display: block; font-size: 0.7rem; letter-spacing: 1px; }
+
+        nav ul { list-style: none; display: flex; gap: 20px; }
+        nav ul li a { text-decoration: none; color: var(--black); font-weight: bold; font-size: 0.9rem; transition: 0.3s; }
+        nav ul li a:hover { color: var(--red); }
+
+        .lang-btn { background: var(--black); color: white; border: none; padding: 8px 15px; border-radius: 4px; cursor: pointer; font-weight: bold; }
+
+        /* Hero Section - Image: hero.jpg */
+        .hero { 
+            height: 85vh; 
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('hero.jpg');
+            background-size: cover; background-position: center; display: flex; 
+            flex-direction: column; justify-content: center; align-items: center; 
+            text-align: center; color: white; padding: 0 20px;
+        }
+        .hero h1 { font-family: 'Montserrat'; font-size: 3.5rem; margin-bottom: 15px; text-transform: uppercase; text-shadow: 2px 2px 10px rgba(0,0,0,0.5); }
+        .hero p { font-size: 1.3rem; max-width: 900px; margin-bottom: 30px; }
+        .btn-order { background: var(--red); color: white; padding: 18px 45px; text-decoration: none; border-radius: 5px; font-weight: bold; font-size: 1.2rem; transition: 0.3s; box-shadow: 0 4px 15px rgba(179, 33, 30, 0.4); }
+        .btn-order:hover { background: #8e1a17; transform: translateY(-3px); }
+
+        /* Floating WhatsApp Icon */
+        .float-wa { position: fixed; bottom: 30px; right: 30px; background: var(--whatsapp); color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 35px; box-shadow: 2px 5px 15px rgba(0,0,0,0.3); z-index: 1000; text-decoration: none; transition: 0.4s; }
+        .float-wa:hover { transform: scale(1.1) rotate(10deg); }
+
+        .back-to-top { position: fixed; bottom: 105px; right: 35px; background: var(--black); color: white; width: 45px; height: 45px; border-radius: 50%; display: none; justify-content: center; align-items: center; cursor: pointer; z-index: 1000; border: none; }
+
+        /* Services Grid - Images: 1.jpg, 2.jpg, 3.jpg, 4.jpg, 5.jpg */
+        .services { padding: 80px 8%; text-align: center; background: var(--gray); }
+        .services h2 { font-family: 'Montserrat'; margin-bottom: 40px; font-size: 2.2rem; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px; }
+        .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.05); transition: 0.3s; }
+        .card:hover { transform: translateY(-10px); }
+        .card img { width: 100%; height: 180px; object-fit: cover; }
+        .card-content { padding: 20px; }
+        .card h3 { font-family: 'Montserrat'; margin-bottom: 10px; }
+        .card-link { text-decoration: none; color: var(--red); font-weight: bold; border: 1px solid var(--red); padding: 8px 15px; border-radius: 4px; display: inline-block; margin-top: 15px; transition: 0.3s; }
+        .card-link:hover { background: var(--red); color: white; }
+
+        /* Partners/Trust Section */
+        .partners { padding: 50px 8%; background: white; text-align: center; border-top: 1px solid #eee; }
+        .partners-icons { display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; opacity: 0.5; filter: grayscale(100%); margin-top: 20px; }
+        .partners-icons i { font-size: 2.5rem; }
+
+        .testimonials { padding: 80px 8%; text-align: center; }
+        footer { background: var(--black); color: white; padding: 60px 8%; text-align: center; }
+
+        @media (max-width: 850px) {
+            .hero h1 { font-size: 2.2rem; }
+            header { padding: 10px 5%; }
+            nav { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+<div id="preloader"><div class="loader"></div></div>
+
+<a href="https://wa.me/255759670723" class="float-wa" target="_blank">
+    <i class="fab fa-whatsapp"></i>
+</a>
+
+<button class="back-to-top" id="backToTop"><i class="fas fa-chevron-up"></i></button>
+
+<header>
+    <a href="index.html" class="logo-box">
+        <img src="logo.png" alt="Davisa Logo">
+        <div class="logo-text">DAVISA <span>WORLDWIDE COMPANY LTD</span></div>
+    </a>
+    <nav>
+        <ul>
+            <li><a href="#" id="nHome">Nyumbani</a></li>
+            <li><a href="#about" id="nAbout">Kuhusu Sisi</a></li>
+            <li><a href="#services" id="nTrucks">Magari & Treli</a></li>
+        </ul>
+    </nav>
+    <button class="lang-btn" onclick="toggleLang()" id="lBtn">English</button>
+</header>
+
+<section class="hero">
+    <div data-aos="fade-up">
+        <h1 id="hTitle">UNAHITAJI MAGARI MAKUBWA?</h1>
+        <p id="hDesc">Tunasafirisha na kuingiza malori bora na treli kutoka China na UK kuja Tanzania kwa usalama na uaminifu mkubwa.</p>
+        <a href="agiza-sasa.html" class="btn-order" id="hBtn">ANZA KUAGIZA SASA</a>
+    </div>
+</section>
+
+<section class="services" id="services">
+    <h2 id="sTitle" data-aos="fade-down">Magari & Treli Tunazohusika Nazo</h2>
+    <div class="grid">
+        <div class="card" data-aos="zoom-in" data-aos-delay="100">
+            <img src="1.jpg" alt="Scania Truck">
+            <div class="card-content">
+                <h3>SCANIA</h3><p>Used (UK Import)</p>
+                <a href="agiza-sasa.html" class="card-link">AGIZA SASA</a>
+            </div>
+        </div>
+        <div class="card" data-aos="zoom-in" data-aos-delay="200">
+            <img src="2.jpg" alt="Howo Truck">
+            <div class="card-content">
+                <h3>HOWO</h3><p>Brand New (China)</p>
+                <a href="agiza-sasa.html" class="card-link">AGIZA SASA</a>
+            </div>
+        </div>
+        <div class="card" data-aos="zoom-in" data-aos-delay="300">
+            <img src="3.jpg" alt="Faw Truck">
+            <div class="card-content">
+                <h3>FAW</h3><p>Heavy Duty Trucks</p>
+                <a href="agiza-sasa.html" class="card-link">AGIZA SASA</a>
+            </div>
+        </div>
+        <div class="card" data-aos="zoom-in" data-aos-delay="400">
+            <img src="4.jpg" alt="Shacman Truck">
+            <div class="card-content">
+                <h3>SHACMAN</h3><p>Power & Efficiency</p>
+                <a href="agiza-sasa.html" class="card-link">AGIZA SASA</a>
+            </div>
+        </div>
+        <div class="card" data-aos="zoom-in" data-aos-delay="500">
+            <img src="5.jpg" alt="Trailer">
+            <div class="card-content">
+                <h3>TRAILERS</h3><p>Flatbed & Lowbed Treli</p>
+                <a href="agiza-sasa.html" class="card-link">AGIZA SASA</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="partners">
+    <p style="font-weight: bold; color: #666;">TRUST INDICATORS</p>
+    <div class="partners-icons">
+        <i class="fas fa-ship"></i>
+        <i class="fas fa-truck-fast"></i>
+        <i class="fas fa-handshake"></i>
+        <i class="fas fa-globe-africa"></i>
+    </div>
+</section>
+
+<section class="testimonials">
+    <h2 data-aos="fade-up">Wateja Wanasemaje</h2>
+    <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; margin-top: 30px;">
+        <div style="background: white; padding: 20px; border-radius: 10px; max-width: 300px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);" data-aos="fade-right">
+            <p>"Huduma bora sana, gari langu lilifika salama."</p>
+            <small><strong>- Bakari M.</strong></small>
+        </div>
+        <div style="background: white; padding: 20px; border-radius: 10px; max-width: 300px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);" data-aos="fade-left">
+            <p>"Trustworthy company. Highly recommended!"</p>
+            <small><strong>- John D.</strong></small>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="footer-info">
+        <p><strong>DAVISA WORLDWIDE COMPANY LTD</strong></p>
+        <p>📍 Arusha, Tanzania | 📞 +255 759 670 723</p>
+    </div>
+    <p style="font-size: 0.8rem; opacity: 0.5; margin-top: 20px;">&copy; 2025 Davisa Truck Worldwide.</p>
+</footer>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+    AOS.init({ duration: 1000, once: true });
+
+    window.addEventListener('load', () => {
+        document.getElementById('preloader').style.display = 'none';
+    });
+
+    const btt = document.getElementById('backToTop');
+    window.onscroll = () => {
+        if (document.documentElement.scrollTop > 300) btt.style.display = "flex";
+        else btt.style.display = "none";
+    };
+    btt.onclick = () => { window.scrollTo({top: 0, behavior: 'smooth'}); };
+
+    let lang = 'sw';
+    function toggleLang() {
+        lang = lang === 'sw' ? 'en' : 'sw';
+        const labels = {
+            en: { nHome: "Home", nAbout: "About Us", nTrucks: "Trucks & Trailers", hTitle: "NEED HEAVY TRUCKS?", hBtn: "ORDER NOW", cBtn: "ORDER NOW" },
+            sw: { nHome: "Nyumbani", nAbout: "Kuhusu Sisi", nTrucks: "Magari & Treli", hTitle: "UNAHITAJI MAGARI MAKUBWA?", hBtn: "ANZA KUAGIZA SASA", cBtn: "AGIZA SASA" }
+        };
+        const c = labels[lang];
+        document.getElementById('nHome').innerText = c.nHome;
+        document.getElementById('hTitle').innerText = c.hTitle;
+        document.getElementById('hBtn').innerText = c.hBtn;
+        document.getElementById('lBtn').innerText = lang === 'sw' ? 'English' : 'Swahili';
+        document.querySelectorAll('.card-link').forEach(l => l.innerText = c.cBtn);
+    }
+</script>
+</body>
+</html>
