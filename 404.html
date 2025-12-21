@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="sw">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- ========== META TAG ZA SEO ========== -->
+    <meta name="description" content="Davisa Worldwide - Ukurasi umepotea. Rudi nyumbani au tupigie simu.">
+    <meta name="robots" content="noindex, follow">
+    
+    <!-- ========== OPEN GRAPH TAGS ========== -->
+    <meta property="og:title" content="Ukurasi Umehapika | Davisa Worldwide">
+    <meta property="og:description" content="Davisa Worldwide Company Ltd - Wauzaji na waagizaji wa magari makubwa, treli, Scania, Howo.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://davisaworldwidetrucks.com/404.html">
+    <meta property="og:image" content="https://davisaworldwidetrucks.com/logo.png">
+    
+    <!-- ========== FAVICON ========== -->
+    <link rel="icon" type="image/png" href="fav.png">
+    <link rel="shortcut icon" type="image/png" href="fav.png">
+    
+    <title>Ukurasi Umehapika | Davisa Worldwide Trucks</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --red: #b3211e;
+            --black: #1a1a1a;
+            --white: #ffffff;
+            --gray: #f8f9fa;
+            --whatsapp: #25D366;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Open Sans', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: var(--white);
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        
+        /* HEADER - Sawa na website kuu */
+        header { 
+            background: var(--white); 
+            padding: 15px 8%; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1); 
+            position: sticky; 
+            top: 0; 
+            z-index: 1000;
+        }
+        
+        .logo-box { 
+            display: flex; 
+            align-items: center; 
+            gap: 12px; 
+            text-decoration: none; 
+            color: inherit; 
+        }
+        
+        .logo-box img { 
+            height: 55px; 
+            width: 55px; 
+            border-radius: 50%; 
+            object-fit: cover; 
+            border: 2px solid var(--red); 
+        }
+        
+        .logo-text { 
+            font-family: 'Montserrat'; 
+            font-weight: 800; 
+            font-size: 1.1rem; 
+            line-height: 1; 
+        }
+        
+        .logo-text span { 
+            color: var(--red); 
+            display: block; 
+            font-size: 0.65rem; 
+            letter-spacing: 1px; 
+            margin-top: 3px; 
+        }
+        
+        nav ul { 
+            list-style: none; 
+            display: flex; 
+            gap: 25px; 
+        }
+        
+        nav ul li a { 
+            text-decoration: none; 
+            color: var(--black); 
+            font-weight: bold; 
+            font-size: 0.9rem; 
+            transition: 0.3s; 
+        }
+        
+        nav ul li a:hover { 
+            color: var(--red); 
+        }
+        
+        /* ERROR SECTION */
+        .error-container {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 60px 20px;
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .error-code {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 8rem;
+            font-weight: 800;
+            color: var(--red);
+            line-height: 1;
+            margin-bottom: 20px;
+            text-shadow: 3px 3px 0 rgba(0,0,0,0.1);
+        }
+        
+        .error-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.5rem;
+            color: var(--black);
+            margin-bottom: 20px;
+        }
+        
+        .error-message {
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 40px;
+            max-width: 600px;
+        }
+        
+        .error-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+            margin-bottom: 50px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 14px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn-primary {
+            background-color: var(--red);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background-color: #9a1c1a;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(179, 33, 30, 0.3);
+        }
+        
+        .btn-secondary {
+            background-color: var(--black);
+            color: white;
+        }
+        
+        .btn-secondary:hover {
+            background-color: #000;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+        
+        .btn-whatsapp {
+            background-color: var(--whatsapp);
+            color: white;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .btn-whatsapp:hover {
+            background-color: #1da851;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
+        }
+        
+        .search-box {
+            margin-top: 30px;
+            width: 100%;
+            max-width: 500px;
+        }
+        
+        .search-input {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            margin-bottom: 15px;
+        }
+        
+        .search-input:focus {
+            outline: none;
+            border-color: var(--red);
+        }
+        
+        /* FOOTER - Sawa na website kuu */
+        footer { 
+            background: var(--black); 
+            color: white; 
+            padding: 40px 8%; 
+            text-align: center; 
+        }
+        
+        .developer-credit { 
+            margin-top: 25px; 
+            font-size: 0.9rem; 
+            font-weight: bold; 
+            color: #ffffff; 
+        }
+        
+        .dev-link { 
+            color: #FFD700; 
+            text-decoration: none; 
+            margin-left: 5px;
+            text-transform: uppercase;
+            animation: glow 1.5s infinite alternate;
+        }
+
+        @keyframes glow {
+            from { text-shadow: 0 0 2px #FFD700, 0 0 5px #FFD700; opacity: 0.8; }
+            to { text-shadow: 0 0 10px #FFD700, 0 0 20px #FF8C00; opacity: 1; }
+        }
+        
+        .float-wa { 
+            position: fixed; 
+            bottom: 25px; 
+            right: 25px; 
+            background: var(--whatsapp); 
+            color: white; 
+            width: 55px; 
+            height: 55px; 
+            border-radius: 50%; 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            font-size: 30px; 
+            z-index: 1000; 
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2); 
+            text-decoration: none; 
+        }
+        
+        /* RESPONSIVE */
+        @media (max-width: 768px) { 
+            header { 
+                padding: 10px 5%; 
+                flex-direction: column;
+                gap: 15px;
+            } 
+            
+            nav ul { 
+                gap: 15px; 
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .error-code {
+                font-size: 6rem;
+            }
+            
+            .error-title {
+                font-size: 2rem;
+            }
+            
+            .error-actions {
+                flex-direction: column;
+                width: 100%;
+                max-width: 300px;
+            }
+            
+            .btn {
+                width: 100%;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .error-code {
+                font-size: 5rem;
+            }
+            
+            .error-title {
+                font-size: 1.8rem;
+            }
+            
+            .error-message {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- FLOATING WHATSAPP BUTTON -->
+    <a href="https://wa.me/255759670723" class="float-wa" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- HEADER - MENU KUWA -->
+    <header>
+        <a href="https://davisaworldwidetrucks.com" class="logo-box">
+            <img src="logo.png" alt="Davisa Logo" onerror="this.src='https://via.placeholder.com/55?text=D'">
+            <div class="logo-text">DAVISA <span>WORLDWIDE COMPANY LTD</span></div>
+        </a>
+        <nav>
+            <ul>
+                <li><a href="https://davisaworldwidetrucks.com">Nyumbani</a></li>
+                <li><a href="https://davisaworldwidetrucks.com/#about">Kuhusu Sisi</a></li>
+                <li><a href="https://davisaworldwidetrucks.com/#services">Magari & Treli</a></li>
+                <li><a href="https://davisaworldwidetrucks.com/agiza-sasa.html">Agiza Sasa</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- ERROR CONTENT -->
+    <div class="error-container">
+        <div class="error-code">404</div>
+        <h1 class="error-title">Ukurasi Umehapika!</h1>
+        
+        <p class="error-message">
+            Samahani, ukurasi ulioutafuta haupo. Unaweza kuwa umeandika anasi sahihi, 
+            ukurasi umefutwa, au umesahau. Tafadhali angalia anasi tena au tumia menu 
+            hapo juu kurudi kwenye ukurasa unaohusika.
+        </p>
+        
+        <div class="error-actions">
+            <a href="https://davisaworldwidetrucks.com" class="btn btn-primary">
+                <i class="fas fa-home"></i> Rudi Nyumbani
+            </a>
+            
+            <a href="https://davisaworldwidetrucks.com/#services" class="btn btn-secondary">
+                <i class="fas fa-truck"></i> Angalia Magari
+            </a>
+            
+            <a href="https://wa.me/255759670723" class="btn btn-whatsapp" target="_blank">
+                <i class="fab fa-whatsapp"></i> Tufahamishe
+            </a>
+        </div>
+        
+        <div class="search-box">
+            <p style="margin-bottom: 15px; color: #666;">Au unaweza kutafuta ukurasa unatafuta:</p>
+            <input type="text" class="search-input" placeholder="Andika hapa kwa kutafuta..." id="searchInput">
+            <button class="btn btn-primary" onclick="searchPage()">
+                <i class="fas fa-search"></i> Tafuta
+            </button>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <p><strong>DAVISA WORLDWIDE COMPANY LTD</strong></p>
+        <p>📍 Arusha, Tanzania | 📞 +255 759 670 723</p>
+        <p>&copy; 2025 Davisa Truck Worldwide. All rights reserved.</p>
+        <div class="developer-credit">
+            Developed by <a href="https://www.instagram.com/matomediatz/" target="_blank" class="dev-link">MATO MEDIA TZ</a>
+        </div>
+    </footer>
+
+    <script>
+        // Function ya kutafuta ukurasa
+        function searchPage() {
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+            
+            // List ya kurasa zinazopatikana
+            const pages = {
+                'nyumbani': 'https://davisaworldwidetrucks.com',
+                'home': 'https://davisaworldwidetrucks.com',
+                'kuhusu': 'https://davisaworldwidetrucks.com/#about',
+                'about': 'https://davisaworldwidetrucks.com/#about',
+                'magari': 'https://davisaworldwidetrucks.com/#services',
+                'trucks': 'https://davisaworldwidetrucks.com/#services',
+                'treli': 'https://davisaworldwidetrucks.com/#services',
+                'trailers': 'https://davisaworldwidetrucks.com/#services',
+                'agiza': 'https://davisaworldwidetrucks.com/agiza-sasa.html',
+                'order': 'https://davisaworldwidetrucks.com/agiza-sasa.html',
+                'scania': 'https://davisaworldwidetrucks.com/#services',
+                'howo': 'https://davisaworldwidetrucks.com/#services',
+                'faw': 'https://davisaworldwidetrucks.com/#services',
+                'shacman': 'https://davisaworldwidetrucks.com/#services',
+                'contact': 'https://davisaworldwidetrucks.com/#contact',
+                'mawasiliano': 'https://davisaworldwidetrucks.com/#contact'
+            };
+            
+            // Check kama neno lina match na kurasa zilizopo
+            for (const [keyword, url] of Object.entries(pages)) {
+                if (searchTerm.includes(keyword) || keyword.includes(searchTerm)) {
+                    window.location.href = url;
+                    return;
+                }
+            }
+            
+            // Kama hakuna match, redirect kwenye ukurasa wa kutafuta
+            window.location.href = `https://davisaworldwidetrucks.com/#services`;
+        }
+        
+        // Kuwasha search kwa kubonyeza Enter
+        document.getElementById('searchInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                searchPage();
+            }
+        });
+        
+        // Redirect otomatiki baada ya sekunde 20
+        setTimeout(function() {
+            window.location.href = 'https://davisaworldwidetrucks.com';
+        }, 20000); // 20 seconds
+    </script>
+</body>
+</html>
